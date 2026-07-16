@@ -13,7 +13,9 @@ sources:
       loaded_at_field: order_date
     tables:
       - name: customers
-        freshness: null
+        config:
+          freshness: null
 
       - name: orders
-        freshness: null
+        config:
+          freshness: null
