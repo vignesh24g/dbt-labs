@@ -1,0 +1,19 @@
+sources:
+  - name: jaffle_shop
+    database: raw
+    schema: jaffle_shop
+    config:
+      freshness:
+        warn_after:
+          count: 24
+          period: hour
+        error_after:
+          count: 2
+          period: day
+      loaded_at_field: order_date
+    tables:
+      - name: customers
+        freshness: null
+
+      - name: orders
+        freshness: null
