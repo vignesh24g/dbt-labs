@@ -13,7 +13,16 @@ sources:
       loaded_at_field: order_date
     tables:
       - name: customers
-        freshness: null
-
+        description: The grian of  this table is one customer per order
+        config:
+          freshness: null
+        columns:
+          - name: id
+            description: id of an customer an primary key of customer table
+            data_tests:
+              - unique
+              
       - name: orders
-        freshness: null
+        description: one row per order
+        config:
+          freshness: null

@@ -2,7 +2,7 @@
 version: 1
 
 models:
-    - name: customers
+    - name: dim_customers
       description: "customer order model"
       columns:
           - name: customer_id
@@ -10,3 +10,11 @@ models:
             tests:
                 - unique
                 - not_null
+
+    - name: stg_jaffle_shop__orders
+      columns: 
+          - name: status
+            tests: 
+              - accepted_values:
+                  values: ['returned','completed','return_pending','shipped','placed']
+
