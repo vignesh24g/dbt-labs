@@ -10,7 +10,7 @@ sources:
         error_after:
           count: 2
           period: day
-      loaded_at_field: order_date
+      loaded_at_field: timestamp
     tables:
       - name: customers
         description: The grian of  this table is one customer per order

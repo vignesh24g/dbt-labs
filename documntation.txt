@@ -58,7 +58,7 @@ documentations
 
 --use descriptions at model or column level in src.yml for sources or schema yml for models
 create doc blocks using md files {% docs doc_block_name %} djmscsjh {%enddocs%} use preview to check
-and mention in src.yml/schema "{{doc(doc_block_name)}}"
+and mention in src.yml/schema "{{doc('doc_block_name')}}"
 we can have multiple doc blocks in same md file so name is must. we can view this in our dbtcatalog
 
 

@@ -2,11 +2,13 @@ sources:
   - name: stripe
     database: raw
     schema: stripe
+    config:
+      loaded_at_field: created
+      freshness:
+        warn_after: { count: 12, period: hour }
+        error_after: { count: 24, period: hour }
     tables:
       - name: payments
-        description: "{{doc(stripr_payments_docs)}}"
+        description: "{{ doc('order_status') }}"
         config:
-          loaded_at_field: created
-          freshness:
-            warn_after: {count: 12, period: hour}
-            error_after: {count: 24, period: hour}
+          freshness: null
