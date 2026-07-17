@@ -1,8 +1,10 @@
 dbt build ->in actual production full pipeline check ,superset of(run,test,snapshots,seeds)
+runs in correct DAG order what if run build and then testing failed for dq its bad,
+so dbt build runs in crct order saving us in prod. if any failure it halts next phase
 dbt run  ->for testing will matrialize
 dbt test
 
--s "modelname"
+--select "modelname"
 
 0.modelname
 1.+modelname upstream
@@ -19,13 +21,42 @@ and also add freshness-> dbt source freshness command , click generate model to 
 5. code level normal cte , join tab2 using(col1), use __ and call jinja'schema
 6. dbt hub.dbt  and get packages and its documentations
 
-
+-------------------------------------------------------------------
 Tests
 1.generic tests the defaults
-unique,not null, expected values,relationship
+unique,not null, accepted values,relationship
+ - name: stg_jaffle_shop__orders (model)
+      columns: 
+          - name: status (column)
+            tests: 
+              - accepted_values:
+              -relationship:
+                field:cust_id
+                to: ref('another model)
 
 2.singluar which we build
-refer dbt utils packages for many prebuild templates
+refer dbt utils, dbt expection packages for many prebuild templates
+create inside tests folder
 
 schema.yml for adding test cases using models ->dbt test
 dbt test --select "mention model name"
+
+we can apply tests on sources aswell similar to models but in same sources.yml file
+nd run for source alone dbt test --select source:jaffle_shop
+dbt test runs all tests in the dbt project
+dbt test --select test_type:generic
+dbt test --select test_type:singular
+dbt test --select one_specific_model
+
+-------------------------------
+use dbt copilot for test case generations
+dbt seeds load csv files to warehouse
+dbt snapshots do cdc .
+
+--------------------------------
+documentations
+
+--use descriptions at model or column level in src.yml for sources or schema yml for models
+create doc blocks using md files {% docs doc_block_name %} djmscsjh {%enddocs%} use preview to check
+and mention in src.yml/schema "{{doc(doc_block_name)}}"
+we can have multiple doc blocks in same md file so name is must. we can view this in our dbtcatalog
