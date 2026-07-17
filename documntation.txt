@@ -60,3 +60,18 @@ documentations
 create doc blocks using md files {% docs doc_block_name %} djmscsjh {%enddocs%} use preview to check
 and mention in src.yml/schema "{{doc(doc_block_name)}}"
 we can have multiple doc blocks in same md file so name is must. we can view this in our dbtcatalog
+
+
+-----------orchestration
+1.create new env , 2 env types ->development,deployment
+
+2.deployment type->general,stg,prod
+
+3.branch to run can be mentioned.if not defaults
+4.connection using  profiles
+
+5.create job , many types choose deloyjob
+give a name,mention what command to run dbt build or any specific model.
+set freshness,generate runs.
+set intervel,cron etc
+another option set when other job completes run this like that.
