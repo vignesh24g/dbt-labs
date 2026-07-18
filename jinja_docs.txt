@@ -1,0 +1,8 @@
+jinja are similar to python with variables,if-else,for loop etc.Its an python based engine
+{%%} for using coding
+{{}} to pull something else out of jinja context
+
+{##}-> comments
+variables,if, for,list,dicts
+
+{%- -%} to remove space in compiled values

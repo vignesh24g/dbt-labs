@@ -1,0 +1,11 @@
+macros
+1.to make repetive code in one place and all it. Its just python functions guys-DRY
+
+Exemplar
+macros/cents_to_dollars.sql
+
+{% macro cents_to_dollars(column_name, decimal_places=2) -%}
+    round( 1.0 * {{ column_name }} / 100, {{ decimal_places }})
+{%- endmacro %}
+
+2. write doc for macro for better documenation and useage
